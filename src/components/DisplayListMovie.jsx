@@ -22,7 +22,7 @@ const DisplayListMovie = ({ results, filterType }) => {
     return (
         <>
             <div className='card-container pt-0 px-[4vw] pb-[150px] '>
-                <h1 className='w-full text-white font-medium text-[1.7rem] text-left mt-[110px] sm:ml-12 capitalize'>
+                <h1 className='text-white font-medium text-[1.7rem] text-left mt-[110px] sm:ml-12 capitalize'>
                     {filterHeader}
                 </h1>
                 <div className='flex flex-wrap justify-center'>

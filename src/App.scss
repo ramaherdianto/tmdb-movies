@@ -8,12 +8,21 @@ main {
     aside {
         background: white;
         box-shadow: 100px 100px 100px -2px #00000031;
+
+        .navlink-container {
+            position: fixed !important;
+        }
     }
 
     .card-container {
         .card {
             &-poster {
                 box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.417);
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    box-shadow: 6px 6px 14px #57c3bc;
+                }
             }
         }
     }
