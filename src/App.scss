@@ -1,0 +1,20 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    aside {
+        background: white;
+        box-shadow: 100px 100px 100px -2px #00000031;
+    }
+
+    .card-container {
+        .card {
+            &-poster {
+                box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.417);
+            }
+        }
+    }
+}
