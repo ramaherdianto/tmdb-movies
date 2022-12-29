@@ -12,7 +12,7 @@ const SearchMovies = () => {
                         className='search-icon z-[1] w-[1.6rem]'
                     />
                     <input
-                        className='bg-navbar border-none relative -left-[42px] w-[170px] transition duration-300 ease-in-out hover:bg-[#c9cdd0] hover:w-[200px] hover:placeholder:text-slate-700 hover:placeholder:italic focus:placeholder:italic focus:ring focus:ring-blue-200 focus:outline-none focus:bg-[#c9cdd0] focus:placeholder:text-slate-700 focus:w-[200px] py-1 px-4 pl-[45px] rounded-2xl'
+                        className='bg-navbar text-slate-700 border-none placeholder:text-sm relative -left-[42px] w-[170px] transition duration-300 ease-in-out hover:bg-[#c9cdd0] hover:w-[200px] hover:placeholder:text-slate-700 hover:placeholder:italic focus:placeholder:italic focus:ring focus:ring-blue-200 focus:outline-none focus:bg-[#c9cdd0] focus:placeholder:text-slate-700 focus:w-[200px] py-1 px-4 pl-[45px] rounded-2xl'
                         type='text'
                         name='searchMovie'
                         placeholder='Search Movies...'
