@@ -3,29 +3,17 @@ import React from 'react';
 const FilterMovies = ({ showMoviesOnBtn }) => {
     return (
         <>
-            <div className='fixed navlink-container gap-[40px] flex mt-[100px] items-center flex-col'>
-                <button
-                    className='popular flex flex-col justify-center items-center text-[#eaeaea] text-[0.8rem] gap-[5px]'
-                    id='filter-btn'
-                    onClick={showMoviesOnBtn}
-                >
+            <div className='navlink-container'>
+                <button className='popular' id='filter-btn' onClick={showMoviesOnBtn}>
                     <img src='/svgs/trending.svg' className='popular' alt='' />
                     Popular
                 </button>
-                <button
-                    className='top_rated flex flex-col justify-center items-center text-[#eaeaea] text-[0.8rem] gap-[5px]'
-                    id='filter-btn'
-                    onClick={showMoviesOnBtn}
-                >
+                <button className='top_rated' id='filter-btn' onClick={showMoviesOnBtn}>
                     <img src='/svgs/star.svg' className='top_rated' alt='' />
                     Top <br />
                     Rated
                 </button>
-                <button
-                    className='now_playing flex flex-col justify-center items-center text-[#eaeaea] text-[0.8rem] gap-[5px]'
-                    id='filter-btn'
-                    onClick={showMoviesOnBtn}
-                >
+                <button className='now_playing' id='filter-btn' onClick={showMoviesOnBtn}>
                     <img src='/svgs/play.svg' className='now_playing' alt='' />
                     Now <br />
                     Playing

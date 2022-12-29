@@ -11,6 +11,27 @@ main {
 
         .navlink-container {
             position: fixed !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 80px;
+
+            button {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: #eaeaea;
+                padding: 18px 0;
+                min-width: 80px;
+                font-size: 0.8rem;
+                gap: 5px;
+                transition: all 0.4s ease-in-out;
+
+                &:hover {
+                    background: #24323f;
+                }
+            }
         }
     }
 
