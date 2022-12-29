@@ -39,7 +39,7 @@ function App() {
             </header>
             <main className='flex flex-nowrap'>
                 <aside className='flex min-w-[80px] min-h-screen bg-sidebar justify-center drop-shadow-2xl'>
-                    <FilterMovies />
+                    <FilterMovies showMoviesOnBtn={showMoviesOnBtn} />
                 </aside>
                 <section className='bg-[#24323F] flex justify-center'>
                     <DisplayListMovie results={movies.results} filterType={movies.filterType} />
