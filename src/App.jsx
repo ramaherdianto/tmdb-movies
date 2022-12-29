@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react';
 import DisplayListMovie from './components/DisplayListMovie';
 import FilterMovies from './components/FilterMovies';
 import SearchMovies from './components/SearchMovies';
-
-export const baseURL = 'https://api.themoviedb.org/3/';
-export const apiKEY = 'b0002ebea15015d3ff5da2f475f8b062';
-export const movieIMG = 'https://image.tmdb.org/t/p/w500';
+import { baseURL, apiKEY } from './api/Api';
 
 function App() {
     const [movies, setMovies] = useState({

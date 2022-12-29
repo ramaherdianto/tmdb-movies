@@ -1,5 +1,5 @@
 import React from 'react';
-import { movieIMG } from '../App';
+import { movieIMG } from '../api/Api';
 
 const DisplayMovieResult = ({ result }) => {
     const isPosterUrlValid =
