@@ -4,13 +4,14 @@ import DisplayListMovie from './DisplayListMovie';
 import SearchMovies from './SearchMovies';
 import FilterMovies from './FilterMovies';
 import { baseURL, apiKEY } from '../api/Api';
+import Alert from './Alert';
 
 function MainContent() {
     const [movies, setMovies] = useState({
         results: [],
         filterType: '',
         movieDetails: '',
-        alerMsgModal: '',
+        alertMsgPosition: '',
     });
 
     // Get data from API
@@ -26,21 +27,40 @@ function MainContent() {
             .catch((err) => console.info('Error', err.message));
     };
 
+    const alertMsgModal = () => {
+        setMovies((prevState) => {
+            return { ...prevState, alertMsgPosition: '40px' };
+        });
+        setTimeout(() => {
+            setMovies((prevState) => {
+                return { ...prevState, alertMsgPosition: '-600px' };
+            });
+        }, 3000);
+    };
+
     useEffect(() => {
         showMoviesOnBtn('popular');
     }, []);
+
     return (
         <div className='App'>
             <header>
-                <SearchMovies />
+                <SearchMovies
+                    movies={movies}
+                    setMovies={setMovies}
+                    results={movies.results}
+                    filterType={movies.filterType}
+                    alertMsgModal={alertMsgModal}
+                />
             </header>
             <main className='flex flex-nowrap'>
                 <aside className='flex min-w-[80px] min-h-screen bg-sidebar justify-center drop-shadow-2xl'>
                     <FilterMovies showMoviesOnBtn={showMoviesOnBtn} />
                 </aside>
-                <section className='bg-[#24323F] flex justify-center'>
+                <section className='bg-[#24323F] w-full flex justify-center'>
                     <DisplayListMovie results={movies.results} filterType={movies.filterType} />
                 </section>
+                <Alert alertMsgPosition={movies.alertMsgPosition} />
             </main>
         </div>
     );
