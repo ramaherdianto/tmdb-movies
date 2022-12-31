@@ -29,7 +29,7 @@ function MainContent() {
 
     const alertMsgModal = () => {
         setMovies((prevState) => {
-            return { ...prevState, alertMsgPosition: '40px' };
+            return { ...prevState, alertMsgPosition: '28px' };
         });
         setTimeout(() => {
             setMovies((prevState) => {
@@ -57,7 +57,7 @@ function MainContent() {
                 <aside className='flex min-w-[80px] min-h-screen bg-sidebar justify-center drop-shadow-2xl'>
                     <FilterMovies showMoviesOnBtn={showMoviesOnBtn} />
                 </aside>
-                <section className='bg-[#24323F] w-full flex justify-center'>
+                <section className='bg-[#24323F] w-full min-h-screen flex justify-center'>
                     <DisplayListMovie results={movies.results} filterType={movies.filterType} />
                 </section>
                 <Alert alertMsgPosition={movies.alertMsgPosition} />
