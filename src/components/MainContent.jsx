@@ -29,7 +29,7 @@ function MainContent() {
 
     const alertMsgModal = () => {
         setMovies((prevState) => {
-            return { ...prevState, alertMsgPosition: '40px' };
+            return { ...prevState, alertMsgPosition: '28px' };
         });
         setTimeout(() => {
             setMovies((prevState) => {
