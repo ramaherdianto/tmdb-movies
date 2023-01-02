@@ -2,7 +2,7 @@ import Axios from 'axios';
 import React, { useState } from 'react';
 import { baseURL, apiKEY } from '../api/Api';
 
-const SearchMovies = ({ movies, setMovies, alertMsgModal }) => {
+const SearchMovies = ({ movies, setMovies, alertMsgModal, handleClose }) => {
     const [keywords, setKeywords] = useState('');
 
     // Handle for get data from API based on users search
@@ -12,6 +12,7 @@ const SearchMovies = ({ movies, setMovies, alertMsgModal }) => {
 
     const onSubmitSearch = (e) => {
         e.preventDefault();
+        handleClose();
         Axios(`${baseURL}/search/movie?api_key=${apiKEY}&query=${keywords}&page=1`)
             .then((data) => {
                 let results = data.data.results;
@@ -30,7 +31,12 @@ const SearchMovies = ({ movies, setMovies, alertMsgModal }) => {
     return (
         <>
             <section className='search-container z-[1] flex justify-between bg-navbar py-1 px-3 gap-6 fixed w-full'>
-                <img src='/svgs/TMDB_LOGO.svg' className='z-[1]  cursor-pointer' alt='TMDB LOGO' />
+                <img
+                    src='/svgs/TMDB_LOGO.svg'
+                    className='z-[1]  cursor-pointer'
+                    alt='TMDB LOGO'
+                    onClick={handleClose}
+                />
                 <form onSubmit={onSubmitSearch}>
                     <div className='search-action flex gap-2 py-[10px] pl-2 mr-6'>
                         <input

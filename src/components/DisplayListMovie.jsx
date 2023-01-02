@@ -1,7 +1,7 @@
 import React from 'react';
 import DisplayMovieResult from './DisplayMovieResult';
 
-const DisplayListMovie = ({ results, filterType }) => {
+const DisplayListMovie = ({ results, filterType, getMovieID }) => {
     let filterHeader = '';
 
     switch (filterType) {
@@ -36,7 +36,13 @@ const DisplayListMovie = ({ results, filterType }) => {
 
                 <div className='flex flex-wrap justify-center'>
                     {results.map((result) => {
-                        return <DisplayMovieResult key={result.id} result={result} />;
+                        return (
+                            <DisplayMovieResult
+                                key={result.id}
+                                result={result}
+                                getMovieID={getMovieID}
+                            />
+                        );
                     })}
                 </div>
             </div>

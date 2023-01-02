@@ -1,7 +1,7 @@
 import React from 'react';
 import { movieIMG } from '../api/Api';
 
-const DisplayMovieResult = ({ result }) => {
+const DisplayMovieResult = ({ result, getMovieID }) => {
     const isPosterUrlValid =
         result.poster_path !== null ? `${movieIMG}/${result.poster_path}` : '/svgs/TMDB_LOGO.svg';
 
@@ -10,6 +10,7 @@ const DisplayMovieResult = ({ result }) => {
             <div
                 className='card flex flex-wrap max-w-[200px] h-[300px] cursor-pointer text-left my-[50px] mx-[20px]'
                 id={result.id}
+                onClick={() => getMovieID(result.id)}
             >
                 <img
                     src={`${isPosterUrlValid}`}
