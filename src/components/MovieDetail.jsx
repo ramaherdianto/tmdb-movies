@@ -18,7 +18,7 @@ const MovieDetail = (movieDetails, handleClose) => {
         ?.map((genre) => {
             return `${genre.name}`;
         })
-        .join(',');
+        .join(', ');
 
     return (
         <div className='movieDetail-container'>
