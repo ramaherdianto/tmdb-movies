@@ -22,9 +22,18 @@ const DisplayListMovie = ({ results, filterType }) => {
     return (
         <>
             <div className='card-container pt-0 px-[4vw] pb-[150px] '>
-                <h1 className='text-white font-medium text-[1.7rem] text-left mt-[110px] sm:ml-12 capitalize'>
-                    {filterHeader}
-                </h1>
+                {results.length > 0 ? (
+                    <h1
+                        className={
+                            results.length < 4
+                                ? 'text-white font-medium text-[1.7rem] text-left mt-[110px] sm:ml-12 md:-ml-12 capitalize'
+                                : 'text-white font-medium text-[1.7rem] text-left mt-[110px] sm:ml-12 capitalize'
+                        }
+                    >
+                        {filterHeader}
+                    </h1>
+                ) : null}
+
                 <div className='flex flex-wrap justify-center'>
                     {results.map((result) => {
                         return <DisplayMovieResult key={result.id} result={result} />;
