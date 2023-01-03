@@ -16,16 +16,17 @@ const SearchMovies = ({ movies, setMovies, alertMsgModal, handleClose }) => {
         Axios(`${baseURL}/search/movie?api_key=${apiKEY}&query=${keywords}&page=1`)
             .then((data) => {
                 let results = data.data.results;
-                console.log(results);
                 if (results.length > 0) {
                     setMovies((prevState) => {
                         return { ...prevState, results: results, filterType: keywords };
                     });
                 } else {
-                    alertMsgModal('Movie Not Found');
+                    alertMsgModal();
                 }
             })
-            .catch(() => setKeywords(''));
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     return (
