@@ -1,18 +1,19 @@
 import React from 'react';
 import { movieIMG } from '../api/Api';
+import DefaultPoster from '/svgs/TMDB_LOGO.svg';
 
 const MovieDetail = (movieDetails, handleClose) => {
-    let defaultPosterUrl = '/svgs/TMDB_LOGO.svg';
+    let defaultPoster = DefaultPoster;
     let posterUrl = `${movieIMG}`;
 
     const { title, poster_path, backdrop_path, overview, release_date, runtime, genres } =
         movieDetails.movieDetails;
 
-    let moviePoster = poster_path !== null ? `${posterUrl}${poster_path}` : defaultPosterUrl;
+    let moviePoster = poster_path !== null ? `${posterUrl}${poster_path}` : defaultPoster;
     let movieBackdrop =
         backdrop_path !== null
             ? `https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${backdrop_path}`
-            : defaultPosterUrl;
+            : defaultPoster;
 
     let genresList = genres
         ?.map((genre) => {
