@@ -2,12 +2,12 @@ import React from 'react';
 import { movieIMG } from '../api/Api';
 import DefaultPoster from '/svgs/TMDB_LOGO.svg';
 
-const MovieDetail = (movieDetails, handleClose) => {
+const MovieDetail = ({ movieDetails, handleClose }) => {
     let defaultPoster = DefaultPoster;
     let posterUrl = `${movieIMG}`;
 
     const { title, poster_path, backdrop_path, overview, release_date, runtime, genres } =
-        movieDetails.movieDetails;
+        movieDetails;
 
     let moviePoster = poster_path !== null ? `${posterUrl}${poster_path}` : defaultPoster;
     let movieBackdrop =
