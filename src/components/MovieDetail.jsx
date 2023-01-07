@@ -2,7 +2,7 @@ import React from 'react';
 import { movieIMG } from '../api/Api';
 import DefaultPoster from '/svgs/TMDB_LOGO.svg';
 
-const MovieDetail = ({ movieDetails, handleClose }) => {
+const MovieDetail = ({ movieDetails, handleClose, setIsLoading, isLoading }) => {
     let defaultPoster = DefaultPoster;
     let posterUrl = `${movieIMG}`;
 
@@ -27,7 +27,7 @@ const MovieDetail = ({ movieDetails, handleClose }) => {
                 <img
                     src={movieBackdrop}
                     className='movieDetail-backdrop'
-                    alt={`${title} Poster`}
+                    alt={isLoading ? 'Loading...' : title + 'Poster'}
                 ></img>
                 <div className='shadow'></div>
             </div>
@@ -39,16 +39,20 @@ const MovieDetail = ({ movieDetails, handleClose }) => {
                 <img
                     src={`${moviePoster}`}
                     className='movieDetail-poster'
-                    alt={`${title} Poster`}
+                    alt={isLoading ? 'Loading...' : title + 'Poster'}
                 ></img>
 
                 <div className='movieDetail-disc'>
-                    <div className='movieDetail-title'>{title}</div>
-                    <div className='movieDetail-genres'>{`Genres: ${genresList}`}</div>
-                    <div> {`Runtime: ${runtime} min`}</div>
-                    <div>{`Release date: ${release_date}`}</div>
+                    <div className='movieDetail-title'>{isLoading ? 'Loading...' : title}</div>
+                    <div className='movieDetail-genres'>{`Genres: ${
+                        isLoading ? 'Loading...' : genresList
+                    }`}</div>
+                    <div> {`Runtime: ${isLoading ? 'Loading...' : runtime + 'min'}`}</div>
+                    <div>{`Release date: ${isLoading ? 'Loading...' : release_date}`}</div>
                     <h4 style={{ color: '#eaeaea', marginTop: '30px' }}>Overview</h4>
-                    <div className='movieDetail-overview'>{overview}</div>
+                    <div className='movieDetail-overview'>
+                        {isLoading ? 'Loading...' : overview}
+                    </div>
                 </div>
             </div>
         </div>
