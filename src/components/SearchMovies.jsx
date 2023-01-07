@@ -2,7 +2,14 @@ import Axios from 'axios';
 import React, { useState } from 'react';
 import { baseURL, apiKEY } from '../api/Api';
 
-const SearchMovies = ({ movies, setMovies, alertMsgModal, handleClose }) => {
+const SearchMovies = ({
+    movies,
+    setMovies,
+    alertMsgModal,
+    handleClose,
+    isLoading,
+    setIsLoading,
+}) => {
     const [keywords, setKeywords] = useState('');
 
     // Handle for get data from API based on users search
@@ -13,6 +20,7 @@ const SearchMovies = ({ movies, setMovies, alertMsgModal, handleClose }) => {
     const onSubmitSearch = (e) => {
         e.preventDefault();
         handleClose();
+        setIsLoading(true);
         Axios(`${baseURL}/search/movie?api_key=${apiKEY}&query=${keywords}&page=1`)
             .then((data) => {
                 let results = data.data.results;
@@ -20,12 +28,15 @@ const SearchMovies = ({ movies, setMovies, alertMsgModal, handleClose }) => {
                     setMovies((prevState) => {
                         return { ...prevState, results: results, filterType: keywords };
                     });
+                    setIsLoading(false);
                 } else {
                     alertMsgModal();
+                    setIsLoading(false);
                 }
             })
             .catch((err) => {
                 console.log(err);
+                setIsLoading(false);
             });
     };
 
