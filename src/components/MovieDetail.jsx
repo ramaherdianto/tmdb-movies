@@ -47,7 +47,7 @@ const MovieDetail = ({ movieDetails, handleClose, setIsLoading, isLoading }) => 
                     <div className='movieDetail-genres'>{`Genres: ${
                         isLoading ? 'Loading...' : genresList
                     }`}</div>
-                    <div> {`Runtime: ${isLoading ? 'Loading...' : runtime + 'min'}`}</div>
+                    <div> {`Runtime: ${isLoading ? 'Loading...' : runtime + ' min'}`}</div>
                     <div>{`Release date: ${isLoading ? 'Loading...' : release_date}`}</div>
                     <h4 style={{ color: '#eaeaea', marginTop: '30px' }}>Overview</h4>
                     <div className='movieDetail-overview'>
